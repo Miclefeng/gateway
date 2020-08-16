@@ -14,7 +14,7 @@ func main() {
 
 		return
 	}
-	//defer dial.Close()
+	defer dial.Close()  // 出现 time_wait 状态
 
 	reader := bufio.NewReader(os.Stdin)
 

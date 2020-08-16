@@ -24,7 +24,7 @@ func main() {
 
 		//3. 创建处理协程(接收数据)
 		go func(accept net.Conn) {
-			defer accept.Close()
+			// defer accept.Close() // 出现 close_wait | FIN_WAIT_2 状态
 			for {
 				var buf [1024]byte
 				readNum, err := accept.Read(buf[:])
